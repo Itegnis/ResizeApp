@@ -17,7 +17,8 @@
         { 
             int[] MyArray = { 1, 2, 3, 4, 5 };
             //string[] MyArray = { "a", "b", "c" };
-            Resize(ref MyArray, 0);
+            Resize(ref MyArray, 2);
+            Console.WriteLine();
         }
     }
 }

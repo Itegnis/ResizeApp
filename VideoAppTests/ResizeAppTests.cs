@@ -7,90 +7,104 @@ namespace VideoAppTests
     public class ResizeAppTests
     {
         [TestMethod]
+        public void ResizeResultCheck()
+        {
+            //arrange
+            int[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] beforeProc = { 1, 2, 3, 4, 5, 6, 7, 0};
+
+            //act
+            ResizeApp.Resize(ref intArray, 8);
+
+            //assert
+            CollectionAssert.AreEqual(beforeProc, intArray);
+        }
+
+        [TestMethod]
         public void ResizeIntArrAdd()
         {
             //arrange
-            int[] IntArray = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
             
             //act
-            ResizeApp.Resize(ref IntArray, 20);
+            ResizeApp.Resize(ref intArray, 20);
         
             //assert
-            Assert.AreEqual(20, IntArray.Length);
+            Assert.AreEqual(20, intArray.Length);
         }
 
         [TestMethod]
         public void ResizeIntArrSubstract()
         {
             //arrange
-            int[] IntArray = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
             
             //act
-            ResizeApp.Resize(ref IntArray, 3);
+            ResizeApp.Resize(ref intArray, 3);
         
             //assert
-            Assert.AreEqual(3, IntArray.Length);
+            Assert.AreEqual(3, intArray.Length);
         }
 
         [TestMethod]
         public void ResizeStrArrAdd()
         {
             //arrange
-            string[] StringArray = { "Hello", "World!", "Rashid", "Clown" };
+            string[] stringArray = { "Hello", "World!", "Rashid", "Clown" };
             
             //act
-            ResizeApp.Resize(ref StringArray, 20);
+            ResizeApp.Resize(ref stringArray, 20);
         
             //assert
-            Assert.AreEqual(20, StringArray.Length);
+            Assert.AreEqual(20, stringArray.Length);
         }
 
         [TestMethod]
         public void ResizeStrArrSubstract()
         {
             //arrange
-            string[] StringArray = { "Hello", "World!", "Rashid", "Clown" };
+            string[] stringArray = { "Hello", "World!", "Rashid", "Clown" };
 
             //act
-            ResizeApp.Resize(ref StringArray, 2);
+            ResizeApp.Resize(ref stringArray, 2);
 
             //assert
-            Assert.AreEqual(2, StringArray.Length);
+            Assert.AreEqual(2, stringArray.Length);
         }
 
         public void ResizeDoubleArrAdd()
         {
             //arrange
-            double[] DoubleArray = { -1.5, 3, 5.5, 6.5 };
+            double[] doubleArray = { -1.5, 3, 5.5, 6.5 };
 
             //act
-            ResizeApp.Resize(ref DoubleArray, 20);
+            ResizeApp.Resize(ref doubleArray, 20);
 
             //assert
-            Assert.AreEqual(20, DoubleArray.Length);
+            Assert.AreEqual(20, doubleArray.Length);
         }
 
         [TestMethod]
         public void ResizeDoubleArrSubstract()
         {
             //arrange
-            double[] DoubleArray = {-1.5, 3, 5.5, 6.5};
+            double[] doubleArray = {-1.5, 3, 5.5, 6.5};
 
             //act
-            ResizeApp.Resize(ref DoubleArray, 2);
+            ResizeApp.Resize(ref doubleArray, 2);
 
             //assert
-            Assert.AreEqual(2, DoubleArray.Length);
+            Assert.AreEqual(2, doubleArray.Length);
         }
 
         [TestMethod]
         public void ResizeSubstract_AmountLessThanZero_Throws()
         {
             //arrange
-            int[] IntArray = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] intArray = { 1, 2, 3, 4, 5, 6, 7 };
 
             //act and assert
-            Assert.ThrowsException<System.OverflowException>(() => ResizeApp.Resize(ref IntArray, -1));
+            Assert.ThrowsException<System.OverflowException>(() => ResizeApp.Resize(ref intArray, -1));
         }
     }
 }
